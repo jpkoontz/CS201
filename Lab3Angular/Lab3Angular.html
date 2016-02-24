@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="Lab3Angularcss.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+	<meta charset="utf-8">
+	<title>Jill's User Avatar Template</title>
+</head>
+
+<body>
+
+	<!-- Module = app, all scope items within 'app'
+		 Controller = mainCtrl, all functionality within div will be coded in 'app' -->
+	<div ng-app='app' ng-controller='mainCtrl'>
+		<h1>Create new user</h1>
+
+		<!-- form name='userForm' is like saying var userForm = {}
+			 When submitting, this will be the function call -->
+		<form name='userForm' ng-submit='addNew(userForm)'>
+
+			<!-- Angular will bind to these "properties" of our form, .name & .url -->
+			<input placeholder='Name' ng-model='userForm.name'/>
+			<input placeholder='Image Url' ng-model='userForm.url'/>
+
+			<!-- the type of button "submit" will trigger the forms ng-submit function -->
+			<button type='submit'>Add New</button>
+		</form>
+
+		<ul class='User-list'>
+			
+			<!-- it looks through array AND gives us a reference for user properties -->
+			<li ng-repeat='user in users'>
+				<avatar user='user' />
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
