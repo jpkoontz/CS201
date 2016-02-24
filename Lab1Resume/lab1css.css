@@ -1,0 +1,101 @@
+body {
+  color: #185480;
+  background-color: F0F4F5;
+  font-family: Oldtown, fantasy;
+  font-variant: small-caps;
+  font-size: 18;
+}
+p {
+  color: #185480;
+}
+#banner {
+  color: white;
+  background-color: #185480;
+  font-family: Oldtown, fantasy;
+  text-align: center;
+  height: 120px;
+  position: fixed;
+  width: 100%;
+  z-index:100;
+  top: 0px;
+}
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 14px;
+    line-height: 0.3;
+}
+h6 {
+    text-align: center;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+}
+nav ul {
+	background-color: F0F4F5;
+    margin: 0;
+    margin-top: 84px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+  	z-index:100;
+  	width: 93%;
+    display: flex;
+    justify-content: space-between;
+}
+nav li {
+    display: inline;
+    margin: 0 35px 0 0;
+    font-size: 20;
+    padding-left: 20px;
+}
+nav a {
+	text-decoration: none;
+	color: #185480;
+	font-family: Oldtown, fantasy;
+}
+img {
+	float: left;
+	width: 180px;
+	padding: 20px;
+	padding-top: 35px;
+}
+p.photo {
+	float: right;
+	margin: 10px;
+}
+.content {
+    margin: auto;
+    position: relative;
+    margin-top: 130px;
+    width: 69%;
+    padding: 10px;
+    overflow: auto;
+}
+.lang {
+ 	text-align: center;
+}
+.title {
+	float: left;
+}
+.time {
+    float: right;
+    margin: 0;
+    padding-right: 50px;
+}
+h3 {
+	margin: 0;
+}
+.content li {
+	font-size: 16;
+}
+.pattern img {
+	float: left;
+	padding: 10px;
+	margin: 0;
+}
+.shaded {
+	background-color: #e6e6e6;
+}
+button {
+	float: right;
+	margin-right: 10px;
+}
