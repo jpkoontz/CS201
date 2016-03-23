@@ -2,18 +2,31 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style1.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-	<meta charset="utf-8">
-	<title>project1</title>
+<meta charset="utf-8">
+<title>Portfolio - Jillian Koontz</title>
+
+<script>
+function toggle_descr(id) {
+	var image = document.getElementById(id);
+    if (image.src.match("down")) {
+        image.src = "arrow-up.png";
+        document.getElementById(id + "-descr").style.display = 'block';
+    } else {
+        image.src = "arrow-down.png";
+        document.getElementById(id + "-descr").style.display = 'none';
+    }
+}
+</script>
+
 </head>
 
 <body>
 
 <ul class="navigation">
-	<li class="nav-item"><a href="#skirts">skirts</a></li>
-	<li class="nav-item"><a href="#dress">dress</a></li>
-	<li class="nav-item"><a href="#jacket">jacket</a></li>
-	<li class="nav-item"><a href="#swimsuits">swimsuits</a></li>
+	<li class="nav-item"><a href="#skirts">Skirts</a></li>
+	<li class="nav-item"><a href="#dress">Dress</a></li>
+	<li class="nav-item"><a href="#coat">Coat</a></li>
+	<li class="nav-item"><a href="#swimsuits">Swimsuits</a></li>
 </ul>
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger"/>
@@ -30,41 +43,63 @@
 	<br>
 	<br>
 	<br>
-	<h1 class="headers"><a name="skirts">Red Skirt</h1>
+	<h1 class="headers"><a name="skirts">Red Skirt   
+		<img src="arrow-down.png" id="red" var descr="red-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="red-descr" style="display:none">Skirt made from a pattern. Waistband with front pleats and back darts. 3” kick flap. Edge stitched pockets.</p>
 	<img src="photos/red_skirt_front.jpg" width=100%;>
 	<img src="photos/red_skirt_pocket.jpg" width=49.5%;>
 	<img src="photos/red_skirt_back.jpg" width=49.5%;>
 	<br>
 	<br>
-	<h1 class="headers">Blue Skirt</h1>
+	<h1 class="headers">Blue Skirt   
+		<img src="arrow-down.png" id="blue" class="blue-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="blue-descr" style="display:none">Altered an existing pair of shorts into a skirt. Previous shorts were size 14. Took in sides to adjust the size. Sewed up the front and back to eliminate leg holes. Re-hemmed.</p>
 	<img src="photos/blue_skirt_front.jpg" width=49.5%;>
 	<img src="photos/blue_skirt_back.jpg" width=49.5%;>
 	<br>
 	<br>
-	<h1 class="headers">Orange Skirt</h1>
+	<h1 class="headers">Orange Skirt   
+		<img src="arrow-down.png" id="orange" class="orange-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="orange-descr" style="display:none">Designed and constructed without a pattern. Elastic 2” waistband. Layer of lining and two layers of chiffon for rich burnt orange color. All layers gathered and serged onto waistband.</p>
 	<img src="photos/orange_skirt.jpg" width=49.5%;>
 	<img src="photos/orange_skirt_top.jpg" width=49.5%;>
 	<br>
 	<br>
-	<h1 class="headers"><a name="dress">Velvet Dress</h1>
+	<h1 class="headers"><a name="dress">Velvet Dress   
+		<img src="arrow-down.png" id="velvet" class="velvet-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="velvet-descr" style="display:none">Altered from existing dress. Re-sewed sides, sleeve width, and arm scythe
+ to fit two sizes smaller.</p>
 	<img src="photos/velvet_dress_front.jpg" width=49.5%;>
 	<img src="photos/velvet_dress_shoulder.jpg" width=49.5%;>
 	<br>
 	<br>
-	<h1 class="headers"><a name="jacket">Jacket</h1>
+	<h1 class="headers"><a name="coat">Tailored Coat   
+		<img src="arrow-down.png" id="coat" class="coat-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="coat-descr" style="display:none">Coat design based on an altered coat pattern. Altered the pattern to eliminate the fitted waist. Tailored the pattern to fit my body. Fully lined and underlined. Notched collar. Inseam pockets.</p>
 	<img src="photos/jacket_front.jpg" width=100%;>
 	<img src="photos/jacket_back.jpg" width=100%;>
 	<img src="photos/jacket_sleeve.jpg" width=49.5%;>
 	<img src="photos/jacket_collar.jpg" width=49.5%;>
 	<br>
 	<br>
-	<h1 class="headers"><a name="swimsuits">Coral and White Swimsuit</h1>
+	<h1 class="headers"><a name="swimsuits">Coral and White Swimsuit   
+		<img src="arrow-down.png" id="coral" class="coral-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="coral-descr" style="display:none">Designed and constructed without a pattern. Dropped leg line for vintage look. Sewn in bust pads.</p>
 	<img src="photos/pink_swimsuit_front.jpg" width=100%;>
 	<img src="photos/pink_swimsuit_back.jpg" width=49.5%;>
 	<img src="photos/pink_swimsuit_bottom.jpg" width=49.5%;>
 	<br>
 	<br>
-	<h1 class="headers">Gray Swimsuit</h1>
+	<h1 class="headers">Gray Swimsuit   
+		<img src="arrow-down.png" id="gray" class="gray-descr" width=20px; onclick="toggle_descr(id)"/>
+	</h1>
+	<p id="gray-descr" style="display:none">Swimsuit made from basic swimsuit pattern. Dropped leg line for modern look. Sewn in bust pads.</p>
 	<img src="photos/grey_swimsuit_front.jpg" width=100%;>
 	<img src="photos/grey_swimsuit_back.jpg" width=49.5%;>
 	<img src="photos/grey_swimsuit_bottom.jpg" width=49.5%;>
