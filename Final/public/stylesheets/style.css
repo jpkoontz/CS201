@@ -1,0 +1,50 @@
+#wrapper {
+	position: relative;
+}
+#header {
+	text-align: center;
+	font-family: 'Cinzel', serif;
+	margin: 0;
+	padding: 0;
+	height: 160px;
+	background-color: #F0F9FA;
+}
+h1 {
+	padding-top: 80px;
+}
+#content {
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
+}
+#footer {
+	bottom: 0;
+	height: 15px;
+	text-align: center;
+	position: absolute;
+}
+p {
+	padding-left: 15%;
+}
+#content-list {
+	width: 60%;
+	float: left;
+	padding-top: 40px;
+	background-color: #C8DEC8;
+}
+#content-info {
+	width: auto;
+	padding-top: 40px;
+	background-color: #DEC8DD;
+}
+#location {
+	font-size: 120%;
+	font-family: 'Cinzel', serif;
+}
+#listing-title {
+	padding-left: 20%;
+}
+#listing-location {
+	padding-left: 20%;
+	font-size: 80%;
+}

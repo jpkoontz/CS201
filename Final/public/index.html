@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Utah Wedding Photographers</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+
+</head>
+<body ng-app="photographers" ng-controller="MainCtrl">
+<div id="wrapper">
+  <div id="header">
+    <h1>Utah Wedding Photographers</h1>
+  </div>
+
+  <div id="content">
+    <div id="content-list">
+      <div>
+        <p id="location">Northern Utah</p>
+        <div ng-repeat="photog in photogs">
+          <span id="listing-title">{{photog.title}}</span><br>
+          <span id="listing-location">{{photog.location}}</span>
+        </div>
+      </div>
+      <br>
+      <div>
+        <p id="location">Salt Lake</p>
+      </div>
+      <br>
+      <div>
+        <p id="location">Utah County</p>
+      </div>
+      <br>
+      <div>
+        <p id="location">Central Utah</p>
+      </div>
+      <br>
+      <div>
+        <p id="location">Southern Utah</p>
+      </div>
+    </div>
+    <div id="content-info">
+      div 2
+    </div>
+  </div>
+
+ <!--  <div id="footer">
+    created by Jpk design
+  </div> -->
+</div>
+
+</body>
+</html>
