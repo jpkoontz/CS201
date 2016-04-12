@@ -30,12 +30,16 @@ p {
 	width: 60%;
 	float: left;
 	padding-top: 40px;
-	background-color: #C8DEC8;
+	/*background-color: #C8DEC8;*/
 }
 #content-info {
 	width: auto;
 	padding-top: 40px;
-	background-color: #DEC8DD;
+	/*background-color: #DEC8DD;*/
+}
+#info-title {
+	font-size: 140%;
+	font-family: 'Cinzel', serif;
 }
 #location {
 	font-size: 120%;
@@ -47,4 +51,29 @@ p {
 #listing-location {
 	padding-left: 20%;
 	font-size: 80%;
+}
+#add-page {
+	margin-top: 30px;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+input {
+	width: 100%;
+    padding: 6px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid #AFEEEE;
+}
+#dropdown {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid #AFEEEE;
+}
+button {
+	width: 49%;
+}
+#cancel-buton {
+	float: right;
 }
