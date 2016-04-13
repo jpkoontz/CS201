@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style2.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<meta charset="utf-8">
+	<title>Photo Gallery</title>
+</head>
+
+<body>
+	<div class="innerdiv">
+		<form action="action+page.php">
+			<div class="form">
+				<span class="formitems">Search for photos: <input class="input" type="text" id="termfield" value=""><span class="hints" id="txtHint"></span></span>
+				<div class="submitbutton"><input class="button" id="submit" type="submit" value="Submit"></div>
+			</div>
+		</form>
+		<br>
+		<br>
+		<div class="photos" id="weather">
+
+		</div>
+	</div>
+
+
+<script>
+// $(document).ready(function() {
+// $( "#termfield" ).keyup(function() {
+// 	$.getJSON("file:///Users/i58500/Documents/creative2/termHints.txt", function(data) {
+// 		console.log("got "+data);
+// 		var everything;
+// 		everything = "<ul>";
+// 		$.each(data, function(i,item) {
+// 			everything += "<li> "+data[i].word;
+// 		});
+// 		everything += "</ul>";
+// 		$("#txtHint").html(everything);
+// 	})
+// 	.done(function() {	console.log('getJSON request succeeded!');	})
+// 	.fail(function(jqXHR, textStatus, errorThrown) { 
+//     console.log('getJSON request failed! ' + textStatus); 
+//     console.log("incoming "+jqXHR.responseText);
+// 	})
+// 	.always(function() { console.log('getJSON request ended!');
+// 	})
+// 	.complete(function() { console.log("complete"); });
+// });
+// });
+
+$("#submit").click(function(e) {
+	var value = $("#termfield").val();
+	console.log(value);
+	e.preventDefault();
+
+	var myurl = "https://api.500px.com/v1/photos/search?term=";
+	myurl += value;
+	myurl += "&consumer_key=xHkW9aeTnoYk4k1lUYicCjbKY9VXjYOWxE3OsBt8";
+	console.log(myurl);
+	$.ajax({
+		url : myurl,
+		dataType : "json",
+		success : function(parsed_json) {
+			var everything = "";
+			for (i = 0; i < 18; i++) {
+				var photo = parsed_json['photos'][i]['image_url'];
+				everything += "<img style='display: block; padding: 5px;' src="+photo+">";
+				console.log(everything);
+			}
+			$("#weather").html(everything);
+		}
+	});
+});
+</script>
+
+</body>
+</html>
