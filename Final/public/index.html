@@ -1,14 +1,19 @@
 <html>
 <head>
   <title>Utah Wedding Photographers</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.1.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<!--   // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script> -->
   <script src="javascripts/app.js"></script>
   <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
 
 </head>
-<body ng-app="photographers">
+<body ng-app="photographers" ng-controller="MainCtrl as MC">
 <div id="wrapper">
   <div id="header">
     <h1>Utah Wedding Photographers</h1>
@@ -17,78 +22,86 @@
 
 
   <script type="text/ng-template" id="/home.html">
-  <a href="#/add">Add a Photographer</a><br><br>
+  <div id="add-button-div">
+    <a id="add-button" href="#/add">Add a Photographer</a><br><br>
+  </div>
   <div ng-view id="content">
     <div id="content-list">
       <div>
         <p id="location">Northern Utah</p>
         <div ng-repeat="photog in photogs | filter: area='Northern Utah'">
-          <span ng-click="displayInfo(photog)" id="listing-title">{{photog.title}}</span><br>
-          <span id="listing-location">{{photog.location}}</span><br><br>
+            <span ng-click="displayInfo(photog)" id="listing-title">{{photog.title}}</span><br>
+            <span id="listing-location">{{photog.location}}</span><br><br>
         </div>
       </div>
       <br>
       <div>
         <p id="location">Salt Lake</p>
         <div ng-repeat="photog in photogs | filter: area='Salt Lake'">
-          <span id="listing-title">{{photog.title}}</span><br>
-          <span id="listing-location">{{photog.location}}</span><br><br>
+            <span ng-click="displayInfo(photog)" id="listing-title">{{photog.title}}</span><br>
+            <span id="listing-location">{{photog.location}}</span><br><br>
         </div>
       </div>
       <br>
       <div>
         <p id="location">Utah County</p>
         <div ng-repeat="photog in photogs | filter: area='Utah County'">
-          <span id="listing-title">{{photog.title}}</span><br>
-          <span id="listing-location">{{photog.location}}</span><br><br>
+            <span ng-click="displayInfo(photog)" id="listing-title">{{photog.title}}</span><br>
+            <span id="listing-location">{{photog.location}}</span><br><br>
         </div>
       </div>
       <br>
       <div>
         <p id="location">Central Utah</p>
         <div ng-repeat="photog in photogs | filter: area='Central Utah'">
-          <span id="listing-title">{{photog.title}}</span><br>
-          <span id="listing-location">{{photog.location}}</span><br><br>
+            <span ng-click="displayInfo(photog)" id="listing-title">{{photog.title}}</span><br>
+            <span id="listing-location">{{photog.location}}</span><br><br>
         </div>
       </div>
       <br>
       <div>
         <p id="location">Southern Utah</p>
         <div ng-repeat="photog in photogs | filter: area='Southern Utah'">
-          <span id="listing-title">{{photog.title}}</span><br>
-          <span id="listing-location">{{photog.location}}</span><br><br>
+            <span ng-click="displayInfo(photog)" id="listing-title">{{photog.title}}</span><br>
+            <span id="listing-location">{{photog.location}}</span><br><br>
         </div>
       </div>
     </div>
-    <div id="content-info">
+    <div ng-show="displaybool" id="content-info">
       <p id="info-title">{{info.title}}</p>
-      <p>{{info.rating}} - {{info.price}}</p>
+      <!-- <div><uib-rating ng-click="changeRating()" ng-model="info.rating" max="5" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" aria-labelledby="custom-icons-1"></uib-rating> <b>(<i>Rate:</i> {{info.rating}})</b></div>
+      <p>{{info.price}}</p> -->
       <p>{{info.location}}</p>
-      <a href="{{info.website}}">{{info.website}}</p>
+      <a href="{{info.website}}">{{info.website}}</a><br><br>
+      <p>Engagements: $ {{info.engagements}}</p>
+      <p>Formals: $ {{info.formals}}</p>
+      <p>Minimal Wedding Package: $ {{info.wpackage}}</p>
     </div>
   </div>
   </script>
 
   <script type="text/ng-template" id="/add.html">
-  <div ng-view id="add-page">
-    <form ng-submit="addPhotographer()" style = "margin-top30px;">
-    <span>Photographer Title: <input type="text" ng-model="title"></input></span><br><br>
-    <span>Location: <input type="text" ng-model="location"></input></span><br><br>
-    <span>Area: <br>
-    <select ng-model="Area" id="dropdown">
-      <option value="Northern Utah">Northern Utah</option>
-      <option value="Salt Lake">Salt Lake</option>
-      <option value="Utah County">Utah County</option>
-      <option value="Central Utah">Central Utah</option>
-      <option value="Southern Utah">Southern Utah</option>
-    </select><br><br>
-    <span>Website: <input type="text" ng-model="website"></input></span><br><br>
-    <span>Engagements ($): <input type="number" ng-model="engagements"></input></span><br><br>
-    <span>Formals ($): <input type="number" ng-model="formals"></input></span><br><br>
-    <span>Minimal Wedding Package ($): <input type="number" ng-model="wpackage"></input></span><br><br><br>
-    <button onclick="window.location='#/home'" id="cancel-button">Cancel</button>
-    <span><button type="submit" onclick="window.location='#/home'">Add</button></span>
-  </form>
+  <div ng-view id="content">
+    <div id="add-page">
+      <form ng-submit="addPhotographer(MC)" style = "margin-top30px;">
+      <span>Photographer Title: <input type="text" ng-model="MC.title"></input></span><br><br>
+      <span>Location: <input type="text" ng-model="MC.location"></input></span><br><br>
+      <span>Area: <br>
+      <select ng-model="MC.area" id="dropdown">
+        <option value="Northern Utah">Northern Utah</option>
+        <option value="Salt Lake">Salt Lake</option>
+        <option value="Utah County">Utah County</option>
+        <option value="Central Utah">Central Utah</option>
+        <option value="Southern Utah">Southern Utah</option>
+      </select><br><br>
+      <span>Website: <input type="text" ng-model="MC.website"></input></span><br><br>
+      <span>Engagements ($): <input type="text" ng-model="MC.engagements"></input></span><br><br>
+      <span>Formals ($): <input type="text" ng-model="MC.formals"></input></span><br><br>
+      <span>Minimal Wedding Package ($): <input type="text" ng-model="MC.wpackage"></input></span><br><br><br>
+      <button onclick="window.location='#/home'" id="cancel-button">Cancel</button>
+      <span><button type="submit">Add</button></span>
+    </form>
+    </div>
   </div>
   </script>
 

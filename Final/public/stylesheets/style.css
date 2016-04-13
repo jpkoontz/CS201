@@ -6,16 +6,35 @@
 	font-family: 'Cinzel', serif;
 	margin: 0;
 	padding: 0;
-	height: 160px;
+	height: 140px;
 	background-color: #F0F9FA;
 }
 h1 {
 	padding-top: 80px;
+	letter-spacing: 2px;
+}
+body {
+	background-color: #F0F9FA;
+}
+#add-button-div {
+	text-align: center;
+}
+#add-button {
+	text-decoration: none;
+	font-family: 'Cinzel', serif;
+	letter-spacing: 3px;
+}
+#add-button:hover {
+	letter-spacing: 6px;
 }
 #content {
-	padding-left: 20px;
+	margin-left: 60px;
+	margin-right: 60px;
+	padding-left: 10px;
 	padding-right: 20px;
 	overflow: hidden;
+	background-color: white;
+	z-index: 1;
 }
 #footer {
 	bottom: 0;
@@ -45,8 +64,13 @@ p {
 	font-size: 120%;
 	font-family: 'Cinzel', serif;
 }
+#listing-title:hover {
+	color: black;
+	font-weight: bold;	
+}
 #listing-title {
 	padding-left: 20%;
+	color: #5C5E5E;
 }
 #listing-location {
 	padding-left: 20%;
@@ -56,6 +80,7 @@ p {
 	margin-top: 30px;
 	margin-left: 30%;
 	margin-right: 30%;
+	background-color: white;
 }
 input {
 	width: 100%;

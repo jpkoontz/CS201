@@ -1,4 +1,4 @@
-var app = angular.module('photographers', ['ui.router'])
+var app = angular.module('photographers', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
 
 app.config([
   '$stateProvider',
@@ -7,21 +7,20 @@ app.config([
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: '/home.html',
-        controller: 'MainCtrl'
+        templateUrl: '/home.html'
       })
       .state('add', {
         url: '/add',
-        templateUrl: '/add.html',
-        controller: 'AddCtrl'
+        templateUrl: '/add.html'
       });
     $urlRouterProvider.otherwise('home');
   }])
 
 
 app.controller('MainCtrl', [
-  '$scope','$http',
-  function($scope, $http){
+  '$scope','$http', '$window',
+  function($scope, $http, $window){
+    $scope.displaybool = false;
     $scope.photogs = [
       {
         title:'Kylee Ann Photography', 
@@ -61,42 +60,41 @@ app.controller('MainCtrl', [
 	  // $scope.upvote(rating);
    //  };
 
-   //  $scope.getAll = function() {
-   //    return $http.get('/add').success(function(data){
-   //      angular.copy(data, $scope.photogs);
-   //    });
-   //  };
-   //  $scope.getAll();
-   $scope.displayInfo = function(photog) {
+    $scope.getAll = function() {
+      return $http.get('/add').success(function(data){
+        angular.copy(data, $scope.photogs);
+        //$scope.photogs = data.concat($scope.photogs);
+      });
+    };
+    $scope.getAll();
+
+    $scope.displayInfo = function(photog) {
+      $scope.displaybool = true;
       $scope.info = photog;
-   }
-
-  }
-])
-
-app.controller('AddCtrl', [
-  '$scope','$http',
-  function($scope, $http) {
-
-    $scope.photogs = [];
+    };
 
     $scope.create = function(photog) {
-      console.log("come here baybay");
+      console.log(photog);
       return $http.post('/add', photog).success(function(data){
         console.log(data);
         $scope.photogs.push(data);
+        console.log($scope.photogs);
+        $window.location.href="#/home";
       });
     };
     
-    $scope.addPhotographer = function() {
+    $scope.addPhotographer = function(MC) {
+      console.log(MC);
       $scope.create({
-        title: $scope.title,
-        location: $scope.location,
-        area: $scope.area,
-        website: $scope.website,
-        engagements: $scope.engagements,
-        formals: $scope.formals,
-        wpackage: $scope.wpackage
+        title: MC.title,
+        location: MC.location,
+        area: MC.area,
+        website: MC.website,
+        engagements: MC.engagements,
+        formals: MC.formals,
+        wpackage: MC.wpackage,
+        rating: 0,
+        price: 0
       });
         $scope.title='';
         $scope.location='';
@@ -105,7 +103,34 @@ app.controller('AddCtrl', [
         $scope.engagements='';
         $scope.formals='';
         $scope.wpackage='';
-      }
+    };
+    $scope.hoveringOver = function(value) {
+      $scope.overStar = value;
+      $scope.percent = 100 * (value / $scope.max);
+    };
+
+    $scope.changeRating = function() {
+      console.log("made it");
+      var rateme = $scope.info.rating;
+      angular.forEach($scope.photogs, function(value) {
+        console.log(value.title);
+        if (value.title == $scope.info.title) {
+          console.log("this is what is altered"+value.rating);
+          // value.rating == $scope.info.rating;
+        }
+      })
+      console.log($scope.photogs);
+      console.log(rateme);
+    };
+
+}]);
+
+app.controller('AddCtrl', [
+  '$scope','$http',
+  function($scope, $http) {
+
+    // $scope.photogs = [];
+
 }]);
 
 
